@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Inicio"
+        android:id="@+id/inicio"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:title="Promociones"
+        android:id="@+id/promociones"
+        android:icon="@drawable/outline_bid_landscape_disabled_24"/>
+
+    <item
+        android:title="Ubicación"
+        android:id="@+id/ubicacion"
+        android:icon="@drawable/outline_globe_location_pin_24"/>
+
+    <item
+        android:title="Pedido"
+        android:id="@+id/pedido"
+        android:icon="@drawable/outline_garden_cart_24"/>
+
+    <item
+        android:title="Perfil"
+        android:id="@+id/perfil"
+        android:icon="@drawable/outline_contacts_product_24"/>
+</menu>
