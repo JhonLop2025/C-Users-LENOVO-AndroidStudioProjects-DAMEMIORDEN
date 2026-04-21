@@ -1,20 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Pedido">
+    android:background="#FFFFFF">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PANTALLA PEDIDO"
-        android:textSize="20dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección de entrega"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalles de la dirección"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#555555" />
+
+        <EditText
+            android:id="@+id/etDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ej: 9a calle 1517"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:padding="14dp"
+            android:background="@android:drawable/edit_text" />
+
+        <EditText
+            android:id="@+id/etApartamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de apartamento"
+            android:layout_marginBottom="28dp"
+            android:padding="14dp"
+            android:background="@android:drawable/edit_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indicaciones para la entrega"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etIndicaciones"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Referencias / Indicaciones para la entrega"
+            android:gravity="top"
+            android:padding="14dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/edit_text"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ej: casa blanca con rejas al lado de la tienda."
+            android:textSize="13sp"
+            android:textColor="#777777"
+            android:layout_marginBottom="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datos de contacto"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ej: 7777 7777"
+            android:inputType="phone"
+            android:padding="14dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/edit_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Te contactaremos solo en caso de que sea necesario."
+            android:textSize="13sp"
+            android:textColor="#777777"
+            android:layout_marginBottom="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Qué nombre le damos a esta dirección?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="32dp">
+
+            <Button
+                android:id="@+id/btnCasa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Casa"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnTrabajo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trabajo"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnOtro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otro" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGuardarDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar dirección"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvOtroMomento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En otro momento"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

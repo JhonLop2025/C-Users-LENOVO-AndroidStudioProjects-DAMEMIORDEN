@@ -1,59 +1,86 @@
 package com.example.damemiorden
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Pedido.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Pedido : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var etDireccion: EditText
+    private lateinit var etApartamento: EditText
+    private lateinit var etIndicaciones: EditText
+    private lateinit var etTelefono: EditText
+    private lateinit var btnCasa: Button
+    private lateinit var btnTrabajo: Button
+    private lateinit var btnOtro: Button
+    private lateinit var btnGuardarDireccion: Button
+    private lateinit var tvOtroMomento: TextView
+
+    private var tipoDireccion = "Casa"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pedido, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_pedido, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Pedido.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Pedido().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        etDireccion = view.findViewById(R.id.etDireccion)
+        etApartamento = view.findViewById(R.id.etApartamento)
+        etIndicaciones = view.findViewById(R.id.etIndicaciones)
+        etTelefono = view.findViewById(R.id.etTelefono)
+        btnCasa = view.findViewById(R.id.btnCasa)
+        btnTrabajo = view.findViewById(R.id.btnTrabajo)
+        btnOtro = view.findViewById(R.id.btnOtro)
+        btnGuardarDireccion = view.findViewById(R.id.btnGuardarDireccion)
+        tvOtroMomento = view.findViewById(R.id.tvOtroMomento)
+
+        btnCasa.setOnClickListener {
+            tipoDireccion = "Casa"
+            Toast.makeText(requireContext(), "Tipo de dirección: Casa", Toast.LENGTH_SHORT).show()
+        }
+
+        btnTrabajo.setOnClickListener {
+            tipoDireccion = "Trabajo"
+            Toast.makeText(requireContext(), "Tipo de dirección: Trabajo", Toast.LENGTH_SHORT).show()
+        }
+
+        btnOtro.setOnClickListener {
+            tipoDireccion = "Otro"
+            Toast.makeText(requireContext(), "Tipo de dirección: Otro", Toast.LENGTH_SHORT).show()
+        }
+
+        btnGuardarDireccion.setOnClickListener {
+            val direccion = etDireccion.text.toString().trim()
+            val apartamento = etApartamento.text.toString().trim()
+            val indicaciones = etIndicaciones.text.toString().trim()
+            val telefono = etTelefono.text.toString().trim()
+
+            if (direccion.isEmpty() || indicaciones.isEmpty() || telefono.isEmpty()) {
+                Toast.makeText(requireContext(), "Completa los campos obligatorios", Toast.LENGTH_SHORT).show()
+            } else {
+                val mensaje = """
+                    Dirección guardada
+                    Dirección: $direccion
+                    Apartamento: $apartamento
+                    Indicaciones: $indicaciones
+                    Teléfono: $telefono
+                    Tipo: $tipoDireccion
+                """.trimIndent()
+
+                Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
             }
+        }
+
+        tvOtroMomento.setOnClickListener {
+            Toast.makeText(requireContext(), "Puedes agregar la dirección después", Toast.LENGTH_SHORT).show()
+        }
+
+        return view
     }
 }
