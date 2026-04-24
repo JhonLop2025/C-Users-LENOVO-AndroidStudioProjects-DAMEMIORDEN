@@ -34,14 +34,9 @@ class Inicio : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recycler = view.findViewById<RecyclerView>(R.id.recycler_comida)
 
-        val lista = listOf(
-            Comida("Hamburguesa", R.drawable.img)
-        )
 
-        recycler.layoutManager = LinearLayoutManager(requireContext())
-        recycler.adapter = ComidaAdapter(lista)
+
     }
 
     override fun onCreateView(
